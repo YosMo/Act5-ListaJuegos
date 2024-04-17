@@ -2,13 +2,17 @@ package com.example.act5_listajuegos.views
 
 
 import android.widget.Toast
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -29,8 +33,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.gamesact5.components.GameCard
-import com.example.gamesact5.viewmodels.GamesViewModel
+import com.example.act5_listajuegos.components.GameCard
+import com.example.act5_listajuegos.viewmodes.GamesViewModel
+
 
 fun AgeCheck(age: Int, classification: String): Boolean {
     if (classification == "E") {
@@ -64,18 +69,15 @@ fun GameView(navController: NavHostController, age: Int, budget: Int) {
 
         Box (
             modifier = Modifier.fillMaxWidth()
+                .background(color = Color(0xFF97AAA8))
+
         ) {
-            Button(
-                onClick = {navController.popBackStack()},
-                colors = ButtonDefaults.buttonColors(Color(0xFF009688)),
-            ) {
-                Text(text = "<", fontWeight = FontWeight.Bold)
-            }
+
 
             Text(
-                text = "Videojuegos",
+                text = "Lista de Compra",
                 fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
+                fontSize = 25.sp,
                 modifier = Modifier.align(Alignment.Center)
             )
         }
@@ -99,19 +101,32 @@ fun GameView(navController: NavHostController, age: Int, budget: Int) {
         Spacer(modifier = Modifier.height(2.dp))
 
         Text(
-            text = "Edad: $age",
-            fontSize = 18.sp
+            text = "Edad: $age años",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold
         )
 
         Spacer(modifier = Modifier.height(2.dp))
 
-        Button(
-            onClick = {navController.navigate("FinalView/$total")},
-            colors = ButtonDefaults.buttonColors(Color(0xFF009688)),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Finalizar compra", fontWeight = FontWeight.Bold)
+        Row(horizontalArrangement= Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Button(
+                onClick = {navController.navigate("FinalView/$total")},
+                colors = ButtonDefaults.buttonColors(Color(0xFF009688)),
+                modifier = Modifier.width(170.dp)
+            ) {
+                Text(text = "Finalizar compra", fontWeight = FontWeight.Bold)
+            }
+
+            Button(
+                onClick = {navController.popBackStack()},
+                colors = ButtonDefaults.buttonColors(Color(0xFF258178)),
+                modifier = Modifier.width(170.dp)
+            ) {
+                Text(text = "Regresar", fontWeight = FontWeight.Bold)
+            }
         }
+
+
 
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -142,10 +157,10 @@ fun GameView(navController: NavHostController, age: Int, budget: Int) {
                                 .show()
                         }
                     },
-                    colors = ButtonDefaults.buttonColors(Color(0xFF673AB7)),
+                    colors = ButtonDefaults.buttonColors(Color(0xFF877A91)),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = "Agregar")
+                    Text(text = "Comprar", fontSize = 16.sp)
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))

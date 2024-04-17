@@ -8,9 +8,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.gamesact5.views.FinalView
-import com.example.gamesact5.views.GameView
-import com.example.gamesact5.views.HomeView
+import com.example.act5_listajuegos.views.FinalView
+import com.example.act5_listajuegos.views.GameView
+import com.example.act5_listajuegos.views.HomeView
 
 @Composable
 fun NavManager() {

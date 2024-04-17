@@ -12,6 +12,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.gamesact5.R
+import com.example.act5_listajuegos.R
 
 @Composable
 fun HomeView(navController: NavHostController) {
@@ -42,52 +43,42 @@ fun HomeView(navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Ingresa tus datos",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold
+            text = "Presupuesto Inicial",
+            fontSize = 27.sp,
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(18.dp))
 
-        OutlinedTextField(
+        TextField(
             value = age.toString(),
             onValueChange = {age = it.toInt()},
             label = { Text("Edad") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 30.dp),
-            leadingIcon = {
-                Icon (
-                    painter = painterResource(id = R.drawable.age),
-                    contentDescription = "Password",
-                    tint = Color(0xFF009688),
-                )},
+
         )
 
-        Spacer(modifier = Modifier.height(2.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
-        OutlinedTextField(
+        TextField(
             value = budget.toString(),
             onValueChange = {budget = it.toInt()},
             label = { Text("Presupuesto") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 30.dp),
-            leadingIcon = {
-                Icon (
-                    painter = painterResource(id = R.drawable.cash),
-                    contentDescription = "Password",
-                    tint = Color(0xFF009688),
-                )},
+
+
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(18.dp))
 
         Button(
             onClick = {
                 navController.navigate("GameView/$age/$budget")
             },
-            colors = ButtonDefaults.buttonColors(Color(0xFF009688)),
+            colors = ButtonDefaults.buttonColors(Color(0xFF725C9B)),
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth()
@@ -95,9 +86,8 @@ fun HomeView(navController: NavHostController) {
         ) {
             Text(
                 text = "Ver productos",
-                fontWeight = FontWeight.Bold,
                 color = Color(0xFFFFFFFF),
-                fontSize = 20.sp
+                fontSize = 16.sp
             )
         }
     }

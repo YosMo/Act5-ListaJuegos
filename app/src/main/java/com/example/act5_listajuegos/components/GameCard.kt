@@ -23,8 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.gamesact5.R
-import com.example.gamesact5.models.Game
+import com.example.act5_listajuegos.R
+import com.example.act5_listajuegos.models.Game
 
 @Composable
 fun GameCard(game: Game) {
@@ -41,7 +41,8 @@ fun GameCard(game: Game) {
                 contentDescription = "Game",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(120.dp)
+                    .height(160.dp)
+                    .width(120.dp)
                     .clip(shape = RoundedCornerShape(10.dp))
             )
 
@@ -69,5 +70,5 @@ fun GameCard(game: Game) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewCard() {
-    GameCard(game = Game("Pokemon SoulSilver", 1000, "Nintendo DS", "E", R.drawable.pk_ss))
+    GameCard(game = Game("Dead by Daylight", 500, "PC", "AO", R.drawable.dbd))
 }
